@@ -21,8 +21,10 @@ var C21Request = function(config){
     // },
 
     post: function(uri, data){
+      var url = config.url + '/api/' + config.appid + uri;
+      console.log("url", url);
       var options = {
-        url: config.url + '/api/' + API_VERSION + '/' + uri,
+        url: url,
         headers: {
           Authorization: config.authorization
         },

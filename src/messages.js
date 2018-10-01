@@ -41,7 +41,7 @@ var Message = function(config, single, plural){
       var createData = {}
       createData[single] = data
       return new Promise(function(resolve, reject){
-        request.post('/' + plural + '.json', createData).then(function(data){
+        request.post('/' + plural, createData).then(function(data){
           resolve(data)
         }).catch(function(err){
           reject(err)
