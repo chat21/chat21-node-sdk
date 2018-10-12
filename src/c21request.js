@@ -3,26 +3,27 @@ var API_VERSION = 'v1';
 
 var C21Request = function(config){
   return {
-    // get: function(uri){
-    //   var options = {
-    //     url: config.url + '/api/' + API_VERSION + '/' + uri,
-    //     headers: {
-    //       Authorization: config.authorization
-    //     },
-    //     forever: true
-    //   }
-
-    //   return new Promise(function(fufill, reject){
-    //     request(options, function(err, res, body){
-    //       if (err) { reject(err); }
-    //       fufill(JSON.parse(body));
-    //     });
-    //   })
-    // },
+    
+    login: function(data){
+      var url = config.authurl
+      var options = {
+        url: url,
+        headers: {
+          "Content-Type": 'application/json'
+        },
+        json: data
+      }
+      console.log("options", options);
+      return new Promise(function(resolve, reject){
+        request.post(options, function(err, res, body){
+          if (err) { reject(err, res); }
+          resolve(body);
+        });
+      })
+    },
 
     post: function(uri, data){
       var url = config.url + '/api/' + config.appid + uri;
-      console.log("url", url);
       var options = {
         url: url,
         headers: {
@@ -30,46 +31,32 @@ var C21Request = function(config){
         },
         json: data
       }
+      console.log("options", options);
       return new Promise(function(resolve, reject){
         request.post(options, function(err, res, body){
-          if (err) { reject(err); }
+          if (err) { reject(err, res); }
           resolve(body);
         });
       })
     },
 
-    // put: function(uri, data){
-    //   var options = {
-    //     url: config.url + '/api/' + API_VERSION + '/' + uri,
-    //     headers: {
-    //       Authorization: config.authorization
-    //     },
-    //     json: data
-    //   }
 
-    //   return new Promise(function(fufill, reject){
-    //     request.put(options, function(err, res, body){
-    //       if (err) { reject(err); }
-    //       fufill(body);
-    //     });
-    //   })
-    // },
-
-    // delete: function(uri, data){
-    //   var options = {
-    //     url: config.url + '/api/' + API_VERSION + '/' + uri,
-    //     headers: {
-    //       Authorization: config.authorization
-    //     }
-    //   }
-
-    //   return new Promise(function(fufill, reject){
-    //     request.delete(options, function(err, res, body){
-    //       if (err) { reject(err); }
-    //       fufill();
-    //     });
-    //   })
-    // }
+    delete: function(uri){
+      var url = config.url + '/api/' + config.appid + uri;
+      var options = {
+        url: url,
+        headers: {
+          Authorization: config.authorization
+        }
+      }
+      console.log("options", options);
+      return new Promise(function(resolve, reject){
+        request.delete(options, function(err, res, body){
+          if (err) { reject(err, res); }
+          resolve(body);
+        });
+      })
+    },
   }
 }
 

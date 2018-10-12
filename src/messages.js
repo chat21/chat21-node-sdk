@@ -4,44 +4,16 @@ var Message = function(config, single, plural){
   var request = require('./c21request.js')(config)
 
   return {
-    // list: function(params){
-    //   return new Promise(function(fufill, reject){
-    //     var urlParams = params ? '?' + params : '';
-    //     zdrequest.get('/' + plural + '.json' + urlParams).then(function(data){
-    //       var key = plural === 'search' ? 'results' : plural
-    //       fufill(data[key])
-    //     }).catch(function(err){
-    //       reject(err)
-    //     })
-    //   })
-    // },
+    
 
-    // showMany: function(ids){
-    //   return new Promise(function(fufill, reject){
-    //     zdrequest.get('/' + plural + '/show_many.json?ids='+ids ).then(function(data){
-    //       var key = plural === 'search' ? 'results' : plural
-    //       fufill(data[key])
-    //     }).catch(function(err){
-    //       reject(err)
-    //     })
-    //   })
-    // },
-
-    // show: function(id){
-    //   return new Promise(function(fufill, reject){
-    //     zdrequest.get('/' + plural + '/' + id + '.json').then(function(data){
-    //       fufill(data[single])
-    //     }).catch(function(err){
-    //       reject(err)
-    //     })
-    //   })
-    // },
-
-    create: function(data){
-      var createData = {}
-      createData[single] = data
+    send: function(sender_fullname, recipient_id, recipient_fullname, text){
+       var message = {}
+       message["sender_fullname"] = sender_fullname;
+       message["recipient_id"] = recipient_id;
+       message["recipient_fullname"] = recipient_fullname;
+       message["text"] = text;
       return new Promise(function(resolve, reject){
-        request.post('/' + plural, createData).then(function(data){
+        request.post('/' + plural, message).then(function(data){
           resolve(data)
         }).catch(function(err){
           reject(err)
@@ -49,39 +21,6 @@ var Message = function(config, single, plural){
       })
     },
     
-    // createOrUpdate: function(data){
-    //   var createData = {}
-    //   createData[single] = data
-    //   return new Promise(function(fufill, reject){
-    //     zdrequest.post('/' + plural + '/create_or_update.json', createData).then(function(data){
-    //       fufill(data)
-    //     }).catch(function(err){
-    //       reject(err)
-    //     })
-    //   })
-    // },
-
-    // update: function(id, data){
-    //   var createData = {}
-    //   createData[single] = data;
-    //   return new Promise(function(fufill, reject){
-    //     zdrequest.put('/' + plural + '/' + id + '.json', createData).then(function(data){
-    //       fufill(data)
-    //     }).catch(function(err){
-    //       reject(err)
-    //     })
-    //   })
-    // },
-
-    // delete: function(id){
-    //   return new Promise(function(fufill, reject){
-    //     zdrequest.delete('/' + plural + '/' + id + '.json').then(function(){
-    //       fufill(true)
-    //     }).catch(function(err){
-    //       reject(err)
-    //     })
-    //   })
-    // }
 
 
   }
