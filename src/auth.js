@@ -22,10 +22,10 @@ var Auth = function(config){
         })
       })
     },
-    getCurrentToken() {
+    getCurrentToken: function() {
       return config.token;
     },
-    setCurrentToken(token) {
+    setCurrentToken: function(token) {
       config.token = token;
       config.authorization = 'Bearer ' + token;
     }
