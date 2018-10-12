@@ -11,6 +11,10 @@ module.exports = function(chat21){
         .then(function(data){
           console.log("send resolve ", data);
         expect(data).to.exist;
+        
+        // console.log("chat21.auth.getCurrentToken() ", chat21.auth.getCurrentToken());
+        expect(chat21.auth.getCurrentToken()).to.exist;
+        
         done();
       }).catch(function(err, res){
         console.log(res);

@@ -1,5 +1,4 @@
 var request = require('request');
-var API_VERSION = 'v1';
 
 var C21Request = function(config){
   return {
@@ -13,7 +12,7 @@ var C21Request = function(config){
         },
         json: data
       }
-      console.log("options", options);
+      // console.log("options", options);
       return new Promise(function(resolve, reject){
         request.post(options, function(err, res, body){
           if (err) { reject(err, res); }
@@ -31,7 +30,7 @@ var C21Request = function(config){
         },
         json: data
       }
-      console.log("options", options);
+      // console.log("options", options);
       return new Promise(function(resolve, reject){
         request.post(options, function(err, res, body){
           if (err) { reject(err, res); }
@@ -49,7 +48,7 @@ var C21Request = function(config){
           Authorization: config.authorization
         }
       }
-      console.log("options", options);
+      // console.log("options", options);
       return new Promise(function(resolve, reject){
         request.delete(options, function(err, res, body){
           if (err) { reject(err, res); }

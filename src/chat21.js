@@ -7,8 +7,7 @@ function Chat21(config){
     return {
       messages: require('./messages.js')(config, 'message', 'messages'),
       groups: require('./groups.js')(config, 'group', 'groups'),
-      auth: require('./auth.js')(config),
-   
+      auth: require('./auth.js')(config)
     };
   }
   
