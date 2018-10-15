@@ -4,6 +4,10 @@
 npm test
 
 
+## Update version with :
+npm version <update_type>
+
+## Publish with:
 publish module with : 
 
 npm publish --access public
