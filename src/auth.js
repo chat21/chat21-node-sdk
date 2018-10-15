@@ -12,7 +12,7 @@ var Auth = function(config){
        authrequest["returnSecureToken"] = true;
       return new Promise(function(resolve, reject){
         request.login(authrequest).then(function(data){
-          // console.log("login", data);
+           console.log("login", data);
           config.authorization = 'Bearer ' + data.idToken;
           config.token = data.idToken;
           config.user_id = data.localId;

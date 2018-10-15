@@ -48,7 +48,7 @@ var C21Request = function(config){
           Authorization: config.authorization
         }
       }
-      // console.log("options", options);
+       console.log("options", options);
       return new Promise(function(resolve, reject){
         request.delete(options, function(err, res, body){
           if (err) { reject(err, res); }
