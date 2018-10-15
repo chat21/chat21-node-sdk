@@ -24,6 +24,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "dotenv": "^6.0.0",
+    "firebase": "^5.5.4",
     "mocha": "^5.2.0",
     "promise": "^8.0.2",
     "request": "^2.88.0"

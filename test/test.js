@@ -11,6 +11,8 @@ var chat21 = new Chat21({
   appid: process.env.CHAT21_APPID,
   oauth: true,
   authurl:  process.env.CHAT21_AUTH_URL,
+  firebase_apikey:  process.env.FIREBASE_APIKEY,
+  firebase_database: process.env.FIREBASE_DATABASE
 });
 
 describe('Chat21', function(){
