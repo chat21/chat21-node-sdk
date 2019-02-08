@@ -1,6 +1,6 @@
 {
   "name": "@chat21/chat21-node-sdk",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Chat21 Nodejs SDK",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "chai": "^4.2.0",
-    "dotenv": "^6.0.0",
-    "firebase": "^5.5.4",
+    "dotenv": "^6.2.0",
+    "firebase": "^5.8.2",
     "mocha": "^5.2.0",
     "promise": "^8.0.2",
     "request": "^2.88.0"

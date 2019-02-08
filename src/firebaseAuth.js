@@ -1,7 +1,5 @@
 var firebase = require("firebase");
 
-
-
 // class FirebaseAuth {
  var FirebaseAuth  = function(config){
     console.log("config", config);
