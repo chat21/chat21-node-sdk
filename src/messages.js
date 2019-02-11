@@ -20,7 +20,21 @@ var Message = function(config, single, plural){
         })
       })
     },
-    
+    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text){
+      var message = {}
+      message["sender_fullname"] = sender_fullname;
+      message["recipient_id"] = recipient_id;
+      message["channel_type"] = "group";
+      message["recipient_fullname"] = recipient_fullname;
+      message["text"] = text;
+     return new Promise(function(resolve, reject){
+       request.post('/' + plural, message).then(function(data){
+         resolve(data)
+       }).catch(function(err){
+         reject(err)
+       })
+     })
+   },
 
 
   }
