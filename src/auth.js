@@ -22,13 +22,24 @@ var Auth = function(config){
         })
       })
     },
+    logout: function() {
+      config.authorization = null;
+      config.token = null;
+      config.user_id = null;
+    },
     getCurrentToken: function() {
       return config.token;
     },
     setCurrentToken: function(token) {
       config.token = token;
       config.authorization = 'Bearer ' + token;
-    }
+    },
+    getAdminToken: function() {
+      return config.admintoken;
+    },
+    setAdminToken: function(admintoken) {
+      config.admintoken = admintoken;
+    },
 
   }
 }

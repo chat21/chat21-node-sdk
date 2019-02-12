@@ -13,10 +13,12 @@ module.exports = function(chat21){
         .then(function(data){
           console.log("join resolve ", data);
         expect(data).to.exist;
+        chat21.auth.logout();
         done();
       })
     })}).catch(function(err, res){
       console.log(res);
+      chat21.auth.logout();
       done(err);
     });
   });
@@ -33,10 +35,12 @@ module.exports = function(chat21){
         .then(function(data){
           console.log("leave resolve ", data);
         expect(data).to.exist;
+        chat21.auth.logout();
         done();
       })
     })}).catch(function(err, res){
       console.log(res);
+      chat21.auth.logout();
       done(err);
     });
   });
@@ -61,10 +65,12 @@ module.exports = function(chat21){
               .then(function(data){
                 console.log("join resolve ", data);
               expect(data).to.exist;
+              chat21.auth.logout();
               done();
             })
           }).catch(function(err, res){
             console.log(res);
+            chat21.auth.logout();
             done(err);
           });
         });

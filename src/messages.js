@@ -13,7 +13,14 @@ var Message = function(config, single, plural){
        message["recipient_fullname"] = recipient_fullname;
        message["text"] = text;
       return new Promise(function(resolve, reject){
-        request.post('/' + plural, message).then(function(data){
+
+        var admintoken = "";
+        if (config.admintoken) {
+         admintoken = "?token=" + config.admintoken;
+         console.log("admintoken", admintoken);
+        }
+
+        request.post('/' + plural + admintoken, message).then(function(data){
           resolve(data)
         }).catch(function(err){
           reject(err)
@@ -28,7 +35,13 @@ var Message = function(config, single, plural){
       message["recipient_fullname"] = recipient_fullname;
       message["text"] = text;
      return new Promise(function(resolve, reject){
-       request.post('/' + plural, message).then(function(data){
+
+      var admintoken = "";
+       if (config.admintoken) {
+        admintoken = "?token=" + config.admintoken;
+       }
+       
+       request.post('/' + plural + admintoken, message).then(function(data){
          resolve(data)
        }).catch(function(err){
          reject(err)
