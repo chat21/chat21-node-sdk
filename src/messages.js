@@ -6,8 +6,11 @@ var Message = function(config, single, plural){
   return {
     
 
-    send: function(sender_fullname, recipient_id, recipient_fullname, text){
+    send: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id){
        var message = {}
+       if (sender_id) {
+        message["sender_id"] = sender_id;
+       }      
        message["sender_fullname"] = sender_fullname;
        message["recipient_id"] = recipient_id;
        message["recipient_fullname"] = recipient_fullname;
@@ -27,8 +30,11 @@ var Message = function(config, single, plural){
         })
       })
     },
-    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text){
+    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id){
       var message = {}
+      if (sender_id) {
+        message["sender_id"] = sender_id;
+       }   
       message["sender_fullname"] = sender_fullname;
       message["recipient_id"] = recipient_id;
       message["channel_type"] = "group";
