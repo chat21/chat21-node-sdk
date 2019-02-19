@@ -6,7 +6,7 @@ var Message = function(config, single, plural){
   return {
     
 
-    send: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id){
+    send: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes){
        var message = {}
        if (sender_id) {
         message["sender_id"] = sender_id;
@@ -15,6 +15,11 @@ var Message = function(config, single, plural){
        message["recipient_id"] = recipient_id;
        message["recipient_fullname"] = recipient_fullname;
        message["text"] = text;
+
+       if (attributes) {
+        message["attributes"] = attributes;
+       }
+       
       return new Promise(function(resolve, reject){
 
         var admintoken = "";
@@ -30,7 +35,7 @@ var Message = function(config, single, plural){
         })
       })
     },
-    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id){
+    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes){
       var message = {}
       if (sender_id) {
         message["sender_id"] = sender_id;
@@ -40,6 +45,11 @@ var Message = function(config, single, plural){
       message["channel_type"] = "group";
       message["recipient_fullname"] = recipient_fullname;
       message["text"] = text;
+
+      if (attributes) {
+        message["attributes"] = attributes;
+       }
+       
      return new Promise(function(resolve, reject){
 
       var admintoken = "";
