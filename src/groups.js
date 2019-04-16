@@ -6,7 +6,7 @@ var Message = function(config, single, plural){
   return {
     
 
-    create: function(name, members){
+    create: function(name, members, attributes){
       var create = {}
       create["group_name"] = name;
 
@@ -15,6 +15,11 @@ var Message = function(config, single, plural){
         group_members[member] = 1;
       });
       create["group_members"] = group_members;
+
+
+      if (attributes) {
+        create["attributes"] = attributes;
+       }
 
       console.log("create", create);
 
