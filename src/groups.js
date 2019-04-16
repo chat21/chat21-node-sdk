@@ -17,8 +17,16 @@ var Message = function(config, single, plural){
       create["group_members"] = group_members;
 
       console.log("create", create);
+
+
+      var admintoken = "";
+      if (config.admintoken) {
+       admintoken = "?token=" + config.admintoken;
+      }
+
+
      return new Promise(function(resolve, reject){
-       request.post('/' + plural, create).then(function(data){
+       request.post('/' + plural+ admintoken, create).then(function(data){
          console.log("data", data);
          resolve(data)
        }).catch(function(err){
@@ -30,8 +38,15 @@ var Message = function(config, single, plural){
     join: function(member_id, group_id){
        var join = {}
        join["member_id"] = member_id;
+
+       var admintoken = "";
+       if (config.admintoken) {
+        admintoken = "?token=" + config.admintoken;
+       }
+
+
       return new Promise(function(resolve, reject){
-        request.post('/' + plural+'/'+group_id+'/members', join).then(function(data){
+        request.post('/' + plural+'/'+group_id+'/members' + admintoken, join).then(function(data){
           console.log("data", data);
           resolve(data)
         }).catch(function(err){
@@ -42,9 +57,14 @@ var Message = function(config, single, plural){
 
     leave: function(member_id, group_id){
      
+      var admintoken = "";
+      if (config.admintoken) {
+       admintoken = "?token=" + config.admintoken;
+      }
+
      return new Promise(function(resolve, reject){
-       request.delete('/' + plural+'/'+group_id+'/members/' + member_id).then(function(data){
-         console.log("data", data);
+       request.delete('/' + plural+'/'+group_id+'/members/' + member_id + admintoken).then(function(data){
+         console.log("data", data); 
          resolve(data)
        }).catch(function(err){
          reject(err)
