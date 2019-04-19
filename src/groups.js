@@ -1,6 +1,6 @@
 var Promise = require('promise');
 
-var Message = function(config, single, plural){
+var Group = function(config, single, plural){
   var request = require('./c21request.js')(config)
 
   return {
@@ -21,7 +21,7 @@ var Message = function(config, single, plural){
         create["attributes"] = attributes;
        }
 
-      console.log("create", create);
+      console.log("group.create", create);
 
 
       var admintoken = "";
@@ -82,4 +82,4 @@ var Message = function(config, single, plural){
   }
 }
 
-module.exports = Message
+module.exports = Group
