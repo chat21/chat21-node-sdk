@@ -6,7 +6,8 @@ var Group = function(config, single, plural){
   return {
     
 
-    create: function(name, members, attributes){
+    
+    create: function(name, members, attributes, group_id){
       var create = {}
       create["group_name"] = name;
 
@@ -16,7 +17,8 @@ var Group = function(config, single, plural){
       });
       create["group_members"] = group_members;
 
-
+      create["group_id"] = group_id;
+      
       if (attributes) {
         create["attributes"] = attributes;
        }
