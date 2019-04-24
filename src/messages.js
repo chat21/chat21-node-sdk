@@ -50,6 +50,7 @@ var Message = function(config, single, plural){
         message["attributes"] = attributes;
        }
        
+      console.log("message.sendToGroup", message);
      return new Promise(function(resolve, reject){
 
       var admintoken = "";
@@ -58,8 +59,10 @@ var Message = function(config, single, plural){
        }
        
        request.post('/' + plural + admintoken, message).then(function(data){
+        console.log("message.sent", data);
          resolve(data)
        }).catch(function(err){
+        console.log("message.sent error", data);
          reject(err)
        })
      })

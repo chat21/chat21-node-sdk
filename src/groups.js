@@ -32,7 +32,7 @@ var Group = function(config, single, plural){
 
      return new Promise(function(resolve, reject){
        request.post('/' + plural+ admintoken, create).then(function(data){
-         console.log("data", data);
+         console.log("group.created", data);
          resolve(data)
        }).catch(function(err){
          reject(err)
