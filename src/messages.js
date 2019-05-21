@@ -6,7 +6,7 @@ var Message = function(config, single, plural){
   return {
     
 
-    send: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, metadata){
+    send: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata){
        var message = {}
        if (sender_id) {
         message["sender_id"] = sender_id;
@@ -18,6 +18,10 @@ var Message = function(config, single, plural){
 
        if (attributes) {
         message["attributes"] = attributes;
+       }
+
+       if (type) {
+        message["type"] = type;
        }
 
        if (metadata) {
@@ -39,7 +43,7 @@ var Message = function(config, single, plural){
         })
       })
     },
-    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, metadata){
+    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata){
       var message = {}
       if (sender_id) {
         message["sender_id"] = sender_id;
@@ -54,6 +58,11 @@ var Message = function(config, single, plural){
         message["attributes"] = attributes;
        }
 
+       if (type) {
+        message["type"] = type;
+       }
+
+       
        if (metadata) {
         message["metadata"] = metadata;
        }
