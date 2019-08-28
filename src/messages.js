@@ -33,7 +33,7 @@ var Message = function(config, single, plural){
         var admintoken = "";
         if (config.admintoken) {
          admintoken = "?token=" + config.admintoken;
-         console.log("admintoken", admintoken);
+         console.log("chat21-node-sdk admintoken", admintoken);
         }
 
         request.post('/' + plural + admintoken, message).then(function(data){
@@ -68,7 +68,7 @@ var Message = function(config, single, plural){
        }
        
        
-      console.log("message.sendToGroup", message);
+      console.log("chat21-node-sdk message.sendToGroup", message);
      return new Promise(function(resolve, reject){
 
       var admintoken = "";
@@ -77,10 +77,10 @@ var Message = function(config, single, plural){
        }
        
        request.post('/' + plural + admintoken, message).then(function(data){
-        console.log("message.sent", data);
+        console.log("chat21-node-sdk message.sent", data);
          resolve(data)
        }).catch(function(err){
-        console.log("message.sent error", data);
+        console.log("chat21-node-sdk message.sent error", data);
          reject(err)
        })
      })

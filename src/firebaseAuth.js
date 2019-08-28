@@ -2,7 +2,7 @@ var firebase = require("firebase");
 
 // class FirebaseAuth {
  var FirebaseAuth  = function(config){
-    console.log("config", config);
+    console.log("chat21-node-sdk config", config);
 
     // Initialize Firebase
 // TODO: Replace with your project's customized code snippet
@@ -12,7 +12,7 @@ var firebaseconfig = {
     authDomain: "<PROJECT_ID>.firebaseapp.com",
     storageBucket: "<BUCKET>.appspot.com",
   };
-console.log("firebaseconfig", firebaseconfig);
+console.log("chat21-node-sdk firebaseconfig", firebaseconfig);
 
 firebase.initializeApp(firebaseconfig);
 

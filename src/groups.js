@@ -23,7 +23,7 @@ var Group = function(config, single, plural){
         create["attributes"] = attributes;
        }
 
-      console.log("group.create", create);
+      console.log("chat21-node-sdk group.create", create);
 
 
       var admintoken = "";
@@ -34,7 +34,7 @@ var Group = function(config, single, plural){
 
      return new Promise(function(resolve, reject){
        request.post('/' + plural+ admintoken, create).then(function(data){
-         console.log("group.created", data);
+         console.log("chat21-node-sdk group.created", data);
          resolve(data)
        }).catch(function(err){
          reject(err)
@@ -54,7 +54,7 @@ var Group = function(config, single, plural){
 
       return new Promise(function(resolve, reject){
         request.post('/' + plural+'/'+group_id+'/members' + admintoken, join).then(function(data){
-          console.log("data", data);
+          console.log("chat21-node-sdk data", data);
           resolve(data)
         }).catch(function(err){
           reject(err)
@@ -71,7 +71,7 @@ var Group = function(config, single, plural){
 
      return new Promise(function(resolve, reject){
        request.delete('/' + plural+'/'+group_id+'/members/' + member_id + admintoken).then(function(data){
-         console.log("data", data); 
+         console.log("chat21-node-sdk data", data); 
          resolve(data)
        }).catch(function(err){
          reject(err)
