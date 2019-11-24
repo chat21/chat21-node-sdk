@@ -17,8 +17,10 @@ var Conversation = function(config, single, plural){
       return new Promise(function(resolve, reject){       
 
         request.delete('/' + plural +'/'+recipient_id+ admintoken).then(function(data){
+          console.log("chat21-node-sdk conversation.archived", data);
           resolve(data)
         }).catch(function(err){
+          console.log("chat21-node-sdk conversation.archived", err);
           reject(err)
         })
       })
