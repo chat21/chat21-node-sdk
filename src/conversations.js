@@ -6,8 +6,14 @@ var Conversation = function(config, single, plural){
   return {
     
 
-    archive: function(recipient_id){
-             
+    archive: function(recipient_id, user_id){
+            
+      var body = {};
+      if (user_id) {
+        body["user_id"] = user_id;
+      }
+      console.log("body", body);
+
       var admintoken = "";
       if (config.admintoken) {
        admintoken = "?token=" + config.admintoken;
@@ -16,7 +22,7 @@ var Conversation = function(config, single, plural){
 
       return new Promise(function(resolve, reject){       
 
-        request.delete('/' + plural +'/'+recipient_id+ admintoken).then(function(data){
+        request.delete('/' + plural +'/'+recipient_id+ admintoken, body).then(function(data){
           console.log("chat21-node-sdk conversation.archived", data);
           resolve(data)
         }).catch(function(err){
