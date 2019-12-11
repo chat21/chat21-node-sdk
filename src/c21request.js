@@ -40,13 +40,14 @@ var C21Request = function(config){
     },
 
 
-    delete: function(uri){
+    delete: function(uri, data){
       var url = config.url + '/api/' + config.appid + uri;
       var options = {
         url: url,
         headers: {
           Authorization: config.authorization
-        }
+        },
+        json: data
       }
        console.log("chat21-node-sdk options", options);
       return new Promise(function(resolve, reject){
