@@ -5,7 +5,9 @@ var Group = function(config, single, plural){
 
   return {
     
-
+  
+    
+    
     
     create: function(name, members, attributes, group_id){
       var create = {}
@@ -41,6 +43,27 @@ var Group = function(config, single, plural){
        })
      })
    },
+    
+    setMembers: function(members, group_id){
+       var join = {}
+       join["members"] = members;
+
+       var admintoken = "";
+       if (config.admintoken) {
+        admintoken = "?token=" + config.admintoken;
+       }
+
+
+      return new Promise(function(resolve, reject) {
+        request.put('/' + plural+'/'+group_id+'/members' + admintoken, join).then(function(data){
+          console.log("chat21-node-sdk data", data);
+          resolve(data)
+        }).catch(function(err){
+          reject(err)
+        })
+      })
+    },
+    
 
     join: function(member_id, group_id){
        var join = {}
