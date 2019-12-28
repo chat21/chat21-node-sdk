@@ -49,10 +49,13 @@ var C21Request = function(config){
         },
         json: data
       }
-      // console.log("options", options);
+       console.log("options", options);
       return new Promise(function(resolve, reject){
         request.put(options, function(err, res, body){
-          if (err) { reject(err, res); }
+          if (err) { 
+            console.log("error putting", err);
+            reject(err, res); 
+          }
           resolve(body);
         });
       })

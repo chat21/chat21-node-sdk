@@ -53,7 +53,7 @@ var Conversation = function(config, single, plural){
           console.log("chat21-node-sdk conversation typing", data);
           resolve(data)
         }).catch(function(err){
-          console.log("chat21-node-sdk conversation typing", err);
+          console.log("error chat21-node-sdk conversation typing", err);
           reject(err)
         })
       })
@@ -79,7 +79,7 @@ var Conversation = function(config, single, plural){
           console.log("chat21-node-sdk conversation stoptypings", data);
           resolve(data)
         }).catch(function(err){
-          console.log("chat21-node-sdk conversation stoptypings", err);
+          console.log("error chat21-node-sdk conversation stoptypings", err);
           reject(err)
         })
       })
