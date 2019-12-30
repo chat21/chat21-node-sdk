@@ -45,14 +45,21 @@ var Group = function(config, single, plural){
    },
     
     setMembers: function(members, group_id){
-       var join = {}
-       join["members"] = members;
+       var join = {}       
+
+       let group_members = {};
+       members.forEach(member => {
+         group_members[member] = 1;
+       });
+
+       join["members"] = group_members;
 
        var admintoken = "";
        if (config.admintoken) {
         admintoken = "?token=" + config.admintoken;
        }
 
+       console.log("chat21-node-sdk join", join);
 
       return new Promise(function(resolve, reject) {
         request.put('/' + plural+'/'+group_id+'/members' + admintoken, join).then(function(data){
