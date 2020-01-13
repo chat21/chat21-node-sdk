@@ -43,7 +43,7 @@ var Message = function(config, single, plural){
         })
       })
     },
-    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata){
+    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata, timestamp){
       var message = {}
       if (sender_id) {
         message["sender_id"] = sender_id;
@@ -66,6 +66,10 @@ var Message = function(config, single, plural){
        if (metadata) {
         message["metadata"] = metadata;
        }
+       if (timestamp) {
+        message["timestamp"] = timestamp;
+       }
+       
        
        
       console.log("chat21-node-sdk message.sendToGroup", message);
