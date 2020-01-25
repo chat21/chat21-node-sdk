@@ -145,16 +145,22 @@ var Group = function(config, single, plural){
 
  updateAttributes: function(attributes, group_id){
 
+  var update = {}
+  
+  
+  if (attributes) {
+    update["attributes"] = attributes;
+   }
 
   var admintoken = "";
   if (config.admintoken) {
    admintoken = "?token=" + config.admintoken;
   }
 
-  console.log("chat21-node-sdk group attributes", attributes);
+  console.log("chat21-node-sdk group attributes", update);
 
  return new Promise(function(resolve, reject) {
-   request.put('/' + plural+'/'+group_id+'/attributes' + admintoken, attributes).then(function(data){
+   request.put('/' + plural+'/'+group_id+'/attributes' + admintoken, update).then(function(data){
      console.log("chat21-node-sdk data", data);
      resolve(data)
    }).catch(function(err){
