@@ -109,6 +109,37 @@ var Group = function(config, single, plural){
      })
    },
     
+  //  updateGroupWithId(group_id, group_name, group_owner, group_members, app_id, attributes, invited_members) {
+   update: function(name, owner, attributes, group_id){
+    var update = {}
+
+    
+    update["group_name"] = name;
+    update["group_owner"] = owner;
+    
+    
+    if (attributes) {
+      update["attributes"] = attributes;
+     }
+
+    console.log("chat21-node-sdk group.update", update);
+
+
+    var admintoken = "";
+    if (config.admintoken) {
+     admintoken = "?token=" + config.admintoken;
+    }
+
+    
+   return new Promise(function(resolve, reject){
+     request.put('/' + plural+'/'+group_id+ admintoken, update).then(function(data){
+       console.log("chat21-node-sdk group.updated", data);
+       resolve(data)
+     }).catch(function(err){
+       reject(err)
+     })
+   })
+ },
 
 
   }
