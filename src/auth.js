@@ -1,4 +1,5 @@
 var Promise = require('promise');
+var winston = require('winston');
 
 var Auth = function(config){
   var request = require('./c21request.js')(config)
@@ -12,7 +13,7 @@ var Auth = function(config){
        authrequest["returnSecureToken"] = true;
       return new Promise(function(resolve, reject){
         request.login(authrequest).then(function(data){
-           console.log("chat21-node-sdk login", data);
+           winston.debug("chat21-node-sdk login", data);
           config.authorization = 'Bearer ' + data.idToken;
           config.token = data.idToken;
           config.user_id = data.localId;

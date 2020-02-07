@@ -1,8 +1,9 @@
 var firebase = require("firebase");
+var winston = require('winston');
 
 // class FirebaseAuth {
  var FirebaseAuth  = function(config){
-    console.log("chat21-node-sdk config", config);
+    winston.debug("chat21-node-sdk config", config);
 
     // Initialize Firebase
 // TODO: Replace with your project's customized code snippet
@@ -12,7 +13,7 @@ var firebaseconfig = {
     authDomain: "<PROJECT_ID>.firebaseapp.com",
     storageBucket: "<BUCKET>.appspot.com",
   };
-console.log("chat21-node-sdk firebaseconfig", firebaseconfig);
+winston.debug("chat21-node-sdk firebaseconfig", firebaseconfig);
 
 firebase.initializeApp(firebaseconfig);
 
@@ -21,11 +22,11 @@ firebase.initializeApp(firebaseconfig);
                 return new Promise(function(resolve, reject){
                     return firebase.auth().signInWithCustomToken(customAuthToken).then(function (data){
 
-                        // console.log("customAuthToken", customAuthToken);
+                        // winston.debug("customAuthToken", customAuthToken);
                 
                 
                         firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
-                            // console.log("idToken", idToken);
+                            // winston.debug("idToken", idToken);
                             resolve(idToken);
                         // Send token to your backend via HTTPS
                         // ...

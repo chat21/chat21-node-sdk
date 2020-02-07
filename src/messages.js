@@ -1,4 +1,5 @@
 var Promise = require('promise');
+var winston = require('winston');
 
 var Message = function(config, single, plural){
   var request = require('./c21request.js')(config)
@@ -33,7 +34,7 @@ var Message = function(config, single, plural){
         var admintoken = "";
         if (config.admintoken) {
          admintoken = "?token=" + config.admintoken;
-         console.log("chat21-node-sdk admintoken", admintoken);
+         winston.debug("chat21-node-sdk admintoken", admintoken);
         }
 
         request.post('/' + plural + admintoken, message).then(function(data){
@@ -72,7 +73,7 @@ var Message = function(config, single, plural){
        
        
        
-      console.log("chat21-node-sdk message.sendToGroup", message);
+      winston.debug("chat21-node-sdk message.sendToGroup", message);
      return new Promise(function(resolve, reject){
 
       var admintoken = "";
@@ -81,10 +82,10 @@ var Message = function(config, single, plural){
        }
        
        request.post('/' + plural + admintoken, message).then(function(data){
-        console.log("chat21-node-sdk message.sent", data);
+        winston.debug("chat21-node-sdk message.sent", data);
          resolve(data)
        }).catch(function(err){
-        console.log("chat21-node-sdk message.sent error", data);
+        winston.debug("chat21-node-sdk message.sent error", data);
          reject(err)
        })
      })

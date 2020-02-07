@@ -1,4 +1,5 @@
 var request = require('request');
+var winston = require('winston');
 
 var C21Request = function(config){
   return {
@@ -12,7 +13,7 @@ var C21Request = function(config){
         },
         json: data
       }
-      // console.log("options", options);
+      // winston.debug("options", options);
       return new Promise(function(resolve, reject){
         request.post(options, function(err, res, body){
           if (err) { reject(err, res); }
@@ -30,7 +31,7 @@ var C21Request = function(config){
         },
         json: data
       }
-      // console.log("options", options);
+      // winston.debug("options", options);
       return new Promise(function(resolve, reject){
         request.post(options, function(err, res, body){
           if (err) { reject(err, res); }
@@ -49,11 +50,11 @@ var C21Request = function(config){
         },
         json: data
       }
-       //console.log("options", options);
+       //winston.debug("options", options);
       return new Promise(function(resolve, reject){
         request.put(options, function(err, res, body){
           if (err) { 
-            //console.log("error putting", err);
+            //winston.debug("error putting", err);
             reject(err, res); 
           }
           resolve(body);
@@ -71,7 +72,7 @@ var C21Request = function(config){
         },
         json: data
       }
-       //console.log("chat21-node-sdk options", options);
+       //winston.debug("chat21-node-sdk options", options);
       return new Promise(function(resolve, reject){
         request.delete(options, function(err, res, body){
           if (err) { reject(err, res); }

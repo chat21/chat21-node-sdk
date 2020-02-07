@@ -1,4 +1,5 @@
 var Promise = require('promise');
+var winston = require('winston');
 
 var Group = function(config, single, plural){
   var request = require('./c21request.js')(config)
@@ -25,7 +26,7 @@ var Group = function(config, single, plural){
         create["attributes"] = attributes;
        }
 
-      console.log("chat21-node-sdk group.create", create);
+      winston.debug("chat21-node-sdk group.create", create);
 
 
       var admintoken = "";
@@ -36,7 +37,7 @@ var Group = function(config, single, plural){
 
      return new Promise(function(resolve, reject){
        request.post('/' + plural+ admintoken, create).then(function(data){
-         console.log("chat21-node-sdk group.created", data);
+         winston.debug("chat21-node-sdk group.created", data);
          resolve(data)
        }).catch(function(err){
          reject(err)
@@ -59,11 +60,11 @@ var Group = function(config, single, plural){
         admintoken = "?token=" + config.admintoken;
        }
 
-       console.log("chat21-node-sdk join", join);
+       winston.debug("chat21-node-sdk join", join);
 
       return new Promise(function(resolve, reject) {
         request.put('/' + plural+'/'+group_id+'/members' + admintoken, join).then(function(data){
-          console.log("chat21-node-sdk data", data);
+          winston.debug("chat21-node-sdk data", data);
           resolve(data)
         }).catch(function(err){
           reject(err)
@@ -84,7 +85,7 @@ var Group = function(config, single, plural){
 
       return new Promise(function(resolve, reject){
         request.post('/' + plural+'/'+group_id+'/members' + admintoken, join).then(function(data){
-          console.log("chat21-node-sdk data", data);
+          winston.debug("chat21-node-sdk data", data);
           resolve(data)
         }).catch(function(err){
           reject(err)
@@ -101,7 +102,7 @@ var Group = function(config, single, plural){
 
      return new Promise(function(resolve, reject){
        request.delete('/' + plural+'/'+group_id+'/members/' + member_id + admintoken).then(function(data){
-         console.log("chat21-node-sdk data", data); 
+         winston.debug("chat21-node-sdk data", data); 
          resolve(data)
        }).catch(function(err){
          reject(err)
@@ -122,7 +123,7 @@ var Group = function(config, single, plural){
       update["attributes"] = attributes;
      }
 
-    console.log("chat21-node-sdk group.update", update);
+    winston.debug("chat21-node-sdk group.update", update);
 
 
     var admintoken = "";
@@ -133,7 +134,7 @@ var Group = function(config, single, plural){
     
    return new Promise(function(resolve, reject){
      request.put('/' + plural+'/'+group_id+ admintoken, update).then(function(data){
-       console.log("chat21-node-sdk group.updated", data);
+       winston.debug("chat21-node-sdk group.updated", data);
        resolve(data)
      }).catch(function(err){
        reject(err)
@@ -157,11 +158,11 @@ var Group = function(config, single, plural){
    admintoken = "?token=" + config.admintoken;
   }
 
-  console.log("chat21-node-sdk group attributes", update);
+  winston.debug("chat21-node-sdk group attributes", update);
 
  return new Promise(function(resolve, reject) {
    request.put('/' + plural+'/'+group_id+'/attributes' + admintoken, update).then(function(data){
-     console.log("chat21-node-sdk data", data);
+     winston.debug("chat21-node-sdk data", data);
      resolve(data)
    }).catch(function(err){
      reject(err)
