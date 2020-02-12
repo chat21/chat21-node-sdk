@@ -1,5 +1,5 @@
 var firebase = require("firebase");
-var winston = require('winston');
+var winston = require('./winston');
 
 // class FirebaseAuth {
  var FirebaseAuth  = function(config){

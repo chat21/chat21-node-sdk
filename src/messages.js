@@ -1,5 +1,5 @@
 var Promise = require('promise');
-var winston = require('winston');
+var winston = require('./winston');
 
 var Message = function(config, single, plural){
   var request = require('./c21request.js')(config)

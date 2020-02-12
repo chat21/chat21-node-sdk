@@ -1,5 +1,5 @@
 var request = require('request');
-var winston = require('winston');
+var winston = require('./winston');
 
 var C21Request = function(config){
   return {
