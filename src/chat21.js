@@ -8,6 +8,7 @@ function Chat21(config){
       messages: require('./messages.js')(config, 'message', 'messages'),
       conversations: require('./conversations.js')(config, 'conversation', 'conversations'),
       groups: require('./groups.js')(config, 'group', 'groups'),
+      contacts: require('./contacts.js')(config, 'contact', 'contacts'),
       auth: require('./auth.js')(config),
       firebaseAuth: require('./firebaseAuth.js')(config)
     };
