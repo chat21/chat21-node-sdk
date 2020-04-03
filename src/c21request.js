@@ -22,6 +22,7 @@ var C21Request = function(config){
       })
     },
 
+    // TODO togli /api da qui? 
     post: function(uri, data){
       var url = config.url + '/api/' + config.appid + uri;
       var options = {
