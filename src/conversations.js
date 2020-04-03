@@ -34,12 +34,22 @@ var Conversation = function(config, single, plural){
     },
 
 
-    typing: function(recipient_id, writer_id){
+    typing: function(recipient_id, writer_id, text, timestamp){
             
       var body = {};
+
       if (writer_id) {
         body["writer_id"] = writer_id;
       }
+
+      if (text) {
+        body["text"] = text;
+      }
+
+      if (timestamp) {
+        body["timestamp"] = timestamp;
+      }
+
       winston.debug("body", body);
 
       var admintoken = "";
@@ -60,6 +70,8 @@ var Conversation = function(config, single, plural){
       })
     },
 
+    // deprecated 
+    // not in use
     stopTyping: function(recipient_id, writer_id){
             
       var body = {};
