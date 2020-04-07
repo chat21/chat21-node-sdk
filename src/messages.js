@@ -33,7 +33,7 @@ var Message = function(config, single, plural){
 
         var admintoken = "";
         if (config.admintoken) {
-         admintoken = "?token=" + config.admintoken;
+         admintoken = "?token=" + encodeURIComponent(config.admintoken);
          winston.debug("chat21-node-sdk admintoken", admintoken);
         }
 
@@ -78,7 +78,7 @@ var Message = function(config, single, plural){
 
       var admintoken = "";
        if (config.admintoken) {
-        admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
        }
        
        request.post('/' + plural + admintoken, message).then(function(data){

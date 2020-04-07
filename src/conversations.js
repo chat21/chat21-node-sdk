@@ -17,7 +17,7 @@ var Conversation = function(config, single, plural){
 
       var admintoken = "";
       if (config.admintoken) {
-       admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
        winston.debug("chat21-node-sdk admintoken", admintoken);
       }
 
@@ -54,7 +54,7 @@ var Conversation = function(config, single, plural){
 
       var admintoken = "";
       if (config.admintoken) {
-       admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
        winston.debug("chat21-node-sdk admintoken", admintoken);
       }
 
@@ -82,7 +82,7 @@ var Conversation = function(config, single, plural){
 
       var admintoken = "";
       if (config.admintoken) {
-       admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
        winston.debug("chat21-node-sdk admintoken", admintoken);
       }
 

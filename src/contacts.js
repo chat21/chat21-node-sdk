@@ -19,7 +19,7 @@ var Contact = function(config, single, plural){
 
       var admintoken = "";
       if (config.admintoken) {
-       admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
       }
 
 
@@ -46,7 +46,7 @@ var Contact = function(config, single, plural){
 
       var admintoken = "";
       if (config.admintoken) {
-      admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
       }
 
       

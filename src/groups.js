@@ -31,7 +31,7 @@ var Group = function(config, single, plural){
 
       var admintoken = "";
       if (config.admintoken) {
-       admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
       }
 
 
@@ -57,7 +57,7 @@ var Group = function(config, single, plural){
 
        var admintoken = "";
        if (config.admintoken) {
-        admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
        }
 
        winston.debug("chat21-node-sdk join", join);
@@ -79,7 +79,7 @@ var Group = function(config, single, plural){
 
        var admintoken = "";
        if (config.admintoken) {
-        admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
        }
 
 
@@ -97,7 +97,7 @@ var Group = function(config, single, plural){
      
       var admintoken = "";
       if (config.admintoken) {
-       admintoken = "?token=" + config.admintoken;
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
       }
 
      return new Promise(function(resolve, reject){
@@ -128,7 +128,7 @@ var Group = function(config, single, plural){
 
     var admintoken = "";
     if (config.admintoken) {
-     admintoken = "?token=" + config.admintoken;
+      admintoken = "?token=" + encodeURIComponent(config.admintoken);
     }
 
     
@@ -155,7 +155,7 @@ var Group = function(config, single, plural){
 
   var admintoken = "";
   if (config.admintoken) {
-   admintoken = "?token=" + config.admintoken;
+    admintoken = "?token=" + encodeURIComponent(config.admintoken);
   }
 
   winston.debug("chat21-node-sdk group attributes", update);
