@@ -22,8 +22,8 @@ var C21Request = function(config){
       })
     },
 
-    // TODO togli /api da qui? 
-    // #aggiungi /api qui per aiutare le persone tra dashboard e server?
+    // TODO togli /api da qui?  
+    // #aggiungi /api qui per aiutare le persone tra dashboard e server? 
 
     post: function(uri, data){
       var url = config.url + '/api/' + config.appid + uri;
@@ -90,7 +90,7 @@ var C21Request = function(config){
       if (config.authorization) {
         options.headers.Authorization = config.authorization;
       }
-      
+
        //winston.debug("chat21-node-sdk options", options);
       return new Promise(function(resolve, reject){
         request.delete(options, function(err, res, body){
