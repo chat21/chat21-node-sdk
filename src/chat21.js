@@ -3,14 +3,15 @@ var winston = require('./winston');
 function Chat21(config){
     if (config.email && config.password) {
       config.authorization = 'Basic ' + new Buffer(config.email + ':' + config.password).toString('base64');
+      winston.info("Chat21-node-sdk config.authorization: "+ config.authorization);
     }
     
   
     if (config.oauth) {
       config.authorization = 'Bearer ' + config.token;
+      winston.info("Chat21-node-sdk config.authorization: "+ config.authorization);
     }
 
-    winston.info("Chat21 config.authorization: "+ config.authorization);
     return {
       messages: require('./messages.js')(config, 'message', 'messages'),
       conversations: require('./conversations.js')(config, 'conversation', 'conversations'),
