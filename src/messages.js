@@ -85,7 +85,7 @@ var Message = function(config, single, plural){
         winston.debug("chat21-node-sdk message.sent", data);
          resolve(data)
        }).catch(function(err){
-        winston.debug("chat21-node-sdk message.sent error", data);
+        winston.error("chat21-node-sdk message.sent error", err);
          reject(err)
        })
      })
