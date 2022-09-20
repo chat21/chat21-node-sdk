@@ -7,7 +7,7 @@ var Message = function(config, single, plural){
   return {
     
 
-    send: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata){
+    send: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata, group){
        var message = {}
        if (sender_id) {
         message["sender_id"] = sender_id;
@@ -28,6 +28,11 @@ var Message = function(config, single, plural){
        if (metadata) {
         message["metadata"] = metadata;
        }
+
+       if (group) {
+        message["group"] = group;
+       }
+
        
       return new Promise(function(resolve, reject){
 
@@ -44,7 +49,7 @@ var Message = function(config, single, plural){
         })
       })
     },
-    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata, timestamp){
+    sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata, timestamp, group){
       var message = {}
       if (sender_id) {
         message["sender_id"] = sender_id;
@@ -69,6 +74,11 @@ var Message = function(config, single, plural){
        }
        if (timestamp) {
         message["timestamp"] = timestamp;
+       }
+       
+
+       if (group) {
+        message["group"] = group;
        }
        
        
