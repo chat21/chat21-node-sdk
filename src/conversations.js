@@ -33,6 +33,25 @@ var Conversation = function(config, single, plural){
       })
     },
 
+    delete: function(recipient_id){
+            
+      var admintoken = "";
+      if (config.admintoken) {
+        admintoken = "?token=" + encodeURIComponent(config.admintoken);
+        winston.debug("chat21-node-sdk admintoken", admintoken);
+      }
+
+      return new Promise(function(resolve, reject){       
+
+        request.delete('/'+recipient_id+ "/"+ plural+"/timelines" + admintoken).then(function(data){
+          winston.debug("chat21-node-sdk conversation.deleted", data);
+          resolve(data)
+        }).catch(function(err){
+          winston.debug("chat21-node-sdk conversation.deleted", err);
+          reject(err)
+        })
+      })
+    },
 
     typing: function(recipient_id, writer_id, text, timestamp){
             
